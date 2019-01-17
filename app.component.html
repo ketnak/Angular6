@@ -1,0 +1,46 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+    <br>
+    
+  </h1>
+  
+<div class="container">
+   <h2>Guess The Number!</h2>
+   <div class="card bg-light mb 3">
+      <div class="card-body"><p class="card-text">Guess the computer generated number between 1 and 1000: </p>
+         <p>The original number is  {{original}}</p>
+      </div>
+      </div>
+  </div>
+
+   <div>
+     <label>Your Guess : </label>
+     <input type="number" [value] = "guess" (input) = "guess = $event.target.value"/>
+     <br><br>
+     <p>My guess is {{guess}}</p>
+     <button (click)="verifyGuess()" class="btn btn-primary btn-sm">Verify</button>
+     <button (click)="initializeGame()" class="btn btn-primary btn-sm">Restart</button>
+   </div>
+<div>
+  <p *ngIf="deviation<0" class="alert alert-warning">Your Guess is higher.</p>
+  <p *ngIf="deviation>0"class="alert alert-warning">Your Guess is lower.</p>
+  <p *ngIf="deviation===0" class="alert alert-success">Yes That's it.</p>
+</div>
+
+</div>
+<h2>Here are some links to help you start: </h2>
+<ul>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
+  </li>
+</ul>
+
+<router-outlet></router-outlet>
